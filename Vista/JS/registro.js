@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
       .then((respuesta) => respuesta.json())
       .then((data) => {
         console.log(data);
-        if (data.registro === "registrado") {
+        if (data.registro) {
           //Si se recibe el texto "registrado", llevar al login para poder iniciar sesión
           window.location.href = "index.php";
         }

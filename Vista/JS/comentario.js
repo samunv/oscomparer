@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", function () {
     console.log("Funciona"); 
 
     //Utilizar fetch para enviar los datos con el método post al controlador
-    fetch("/Controlador/subircomentariocontrolador.php", {
+    fetch("./../../Controlador/subircomentariocontrolador.php", {
       method: "POST",
       body: datos,
     })

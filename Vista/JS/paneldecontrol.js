@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
   let overlay = document.getElementById("overlay");
 
   // Realiza una solicitud  utilizando fetch
-  fetch("/Controlador/panelcontrolador.php")
+  fetch("./../../Controlador/panelcontrolador.php")
     .then((respuesta) => respuesta.json())
     .then((data) => {
       resDatos = data.datos; // Almacena la respuesta (datos) en la variable resDatos
@@ -103,7 +103,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     btnEliminar.addEventListener("click", function () {
       //Pasar el nombre del SO mediante el método get a eliminarcontrolador
-      fetch("/Controlador/eliminarcontrolador.php?nombreSO=" + nombreSO)
+      fetch("./../../Controlador/eliminarcontrolador.php?nombreSO=" + nombreSO)
         .then((respuesta) => respuesta.json())
         .then(() => {
           console.log("Nombre: ", nombreSO);

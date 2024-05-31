@@ -11,10 +11,9 @@ $usuarioDAO = new UsuarioDAOimplementar();
 $inputNombre = $_POST["nombreNuevo"];
 $inputContrasena = $_POST["contrasenaNueva"];
 $inputEmail = $_POST["email"];
-$admin = $_POST["admin"]; 
 
 // Crear un nuevo objeto Usuario
-$nuevoUsuario = new Usuarios($inputNombre, $inputEmail, $inputContrasena, $admin);
+$nuevoUsuario = new Usuarios($inputNombre, $inputEmail, $inputContrasena, 0);
 
 $array = array();
 

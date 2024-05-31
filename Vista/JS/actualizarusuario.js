@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", function () {
     console.log("DATOS:", datos.body);
 
     //Enviar datos utilizando Post
-    fetch("/Controlador/actualizarusuariocontrolador.php", {
+    fetch("./../../Controlador/actualizarusuariocontrolador.php", {
       method: "POST",
       body: datos,
     })
