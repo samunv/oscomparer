@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OScomparer | Login</title>
-    <link rel="icon" href="/Vista/img/flechas-repetir (1).png">
-    <link rel="stylesheet" href="/Vista/CSS/login.css?v=<?php echo time() ?>">
-    <script src="/Vista/JS/login.js?v=<?php echo time() ?>"></script>
+    <link rel="icon" href="Vista/img/flechas-repetir (1).png">
+    <link rel="stylesheet" href="Vista/CSS/login.css?v=<?php echo time() ?>">
+    <script src="Vista/JS/login.js?v=<?php echo time() ?>"></script>
 </head>
 
 <body>

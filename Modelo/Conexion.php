@@ -12,8 +12,8 @@ class Conexion
 
     private $conexion;
     private $servidor = "localhost";
-    private $usuario = "debian-sys-maint";
-    private $contrasena_bd = "Uy793Gg0QsrXrEqj";
+    private $usuario = "samu2";
+    private $contrasena_bd = "123ABC=e";
     private $nombre_bd = "comparadorprueba";
 
     public function __construct()
