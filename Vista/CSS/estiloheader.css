@@ -1,0 +1,226 @@
+header {
+    backdrop-filter: blur(10px);
+    background-color: white; 
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+}
+
+
+.nav-principal ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 13px;
+}
+
+.nav-principal ul li a:hover {
+    color: #0071e3;
+
+
+}
+
+.nav-principal ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    border-radius: 20px;
+}
+
+.nav-movil {
+    display: none;
+}
+
+.caja-buscador-login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.sesionusuario {
+    margin-top: 3px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+
+
+
+.sesionusuario:hover {
+    cursor: pointer;
+}
+
+
+.menu {
+    display: none;
+}
+
+
+#pestana-cerrar-sesion {
+    background-color: white;
+    width: 150px;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    position: absolute;
+    left: 76%;
+    top: 66px;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+#pestana-cerrar-sesion p {
+    padding: 5px;
+}
+
+#pestana-cerrar-sesion a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#pestana-cerrar-sesion p:hover {
+    color: #0071e3;
+    cursor: pointer;
+}
+
+#pestana-cerrar-sesion a:hover {
+    color: #0071e3;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/*Estilo para dispositivos móviles con máximo de 500px de ancho*/
+@media(max-width:500px) {
+
+    #header {
+        width: 100%;
+        display: flex;
+        position: static;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .menu {
+        display: block;
+        margin-right: 3px;
+        margin-top: 3px;
+    }
+
+    .caja-buscador-login {
+        width: 240px;
+    }
+
+    .contenedor-buscador {
+        width: 110px;
+    }
+
+    .contenedor-buscador img {
+        margin-top: 3px;
+        margin-right: 7px;
+    }
+
+    .buscador {
+        padding: 0%;
+    }
+
+    .nav-principal ul li {
+        display: none;
+    }
+
+    .nav-movil {
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+    }
+
+    .nav-movil ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 17px;
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        padding: 13px;
+    }
+
+    .nav-movil ul li a {
+        text-decoration: none;
+        color: black;
+        padding: 13px;
+        border-radius: 20px;
+    }
+
+    .sesionusuario {
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row-reverse;
+        border-radius: 20px;
+        width: 80px;
+        padding: 5px;
+    }
+
+    #nombre-usuario {
+        padding: 5px;
+    }
+
+
+    .sesionusuario:hover {
+        cursor: pointer;
+    }
+
+    #pestana-cerrar-sesion {
+
+        width: 120px;
+        padding: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: absolute;
+        left: 60%;
+        top: 66px;
+        z-index: 999;
+
+    }
+}

@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'San Francisco', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    padding: 20px;
+}
+
+.formulario {
+    background-color: #ececf0;
+    padding: 40px;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario #email {
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    width: 200px;
+}
+
+#nombreNuevo,
+#contrasenaNueva {
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    width: 200px;
+}
+
+
+
+.btn-registrarse {
+    background-color: #0071e3;
+    border: 1px solid #0071e3;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-registrarse:hover {
+    background-color: transparent;
+    color: #0071e3;
+    border: #0071e3 1px solid;
+}
+
+.contenedor-botones {
+
+    width: 400px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    background-color: transparent;
+    border: 1px solid #0071e3;
+    color: #0071e3;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.btn-volver:hover {
+
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.texto-proteccion {
+    color: grey;
+    text-align: center;
+    font-size: smaller;
+    margin-top: 50px;
+}
+
+#input-admin{
+    display: none;
+}
+    
+
+
+@media (max-width: 500px){
+   
+    .formulario {
+        background-color: #ececf0;
+        padding: 40px;
+        width: 70%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

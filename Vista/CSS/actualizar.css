@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "San Francisco", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+#formulario-actualizar {
+    background-color: #ececf0;
+    padding: 40px;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+
+
+.input-oculto {
+    display: none;
+}
+
+input[type="text"],
+input[type="number"], select{
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px;
+    width: 200px;
+    background-color: white;
+
+}
+
+#btn-actualizar, #btn-volver-atras{
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #0071e3;
+    color: white;
+    border: 1px #0071e3 solid;
+}
+
+#btn-actualizar:hover, #btn-volver-atras:hover{
+    background-color: transparent;
+    color: #0071e3;
+    border: 1px #0071e3 solid;
+    cursor: pointer;
+}
+
+@media(max-width:500px){
+    h1 {
+        text-align: center;
+        padding: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+    
+    #formulario-actualizar {
+        background-color: #ececf0;
+        padding: 40px;
+        width: 70%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+    }
+}
