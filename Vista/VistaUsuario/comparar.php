@@ -73,7 +73,7 @@
                 <h1>Sistemas Operativos de Móviles</h1>
             </section>
             <section class="texto-explicativo">
-                <h3>Elige dos SO para comparar. Haz click en ellos para marcarlos.</h3>
+                <h3>Elige dos SO para comparar. Haz click en ellos para seleccionar.</h3>
             </section>
         </section>
         <div class="seccion-boton-comparar">
@@ -95,7 +95,7 @@
                 <h1>Sistemas Operativos de Ordenadores</h1>
             </section>
             <section class="texto-explicativo">
-                <h3>Elige dos SO para comparar. Haz click en ellos para marcarlos.</h3>
+                <h3>Elige dos SO para comparar. Haz click en ellos para seleccionar.</h3>
             </section>
         </section>
         <div class="seccion-boton-comparar">
@@ -114,7 +114,7 @@
                 <h1>Sistemas Operativos de Consolas</h1>
             </section>
             <section class="texto-explicativo">
-                <h3>Elige dos SO para comparar. Haz click en ellos para marcarlos.</h3>
+                <h3>Elige dos SO para comparar. Haz click en ellos para seleccionar.</h3>
             </section>
         </section>
         <div class="seccion-boton-comparar">
@@ -133,7 +133,7 @@
                 <h1>Sistemas Operativos de TVs</h1>
             </section>
             <section class="texto-explicativo">
-                <h3>Elige dos SO para comparar. Haz click en ellos para marcarlos.</h3>
+                <h3>Elige dos SO para comparar. Haz click en ellos para seleccionar.</h3>
             </section>
         </section>
         <div class="seccion-boton-comparar">
@@ -152,7 +152,7 @@
                 <h1>Sistemas Operativos de Coches</h1>
             </section>
             <section class="texto-explicativo">
-                <h3>Elige dos SO para comparar. Haz click en ellos para marcarlos.</h3>
+                <h3>Elige dos SO para comparar. Haz click en ellos para seleccionar.</h3>
             </section>
         </section>
         <div class="seccion-boton-comparar">

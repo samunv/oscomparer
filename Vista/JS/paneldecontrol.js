@@ -8,6 +8,18 @@ window.addEventListener("DOMContentLoaded", function () {
   let btnCancelar = document.getElementById("btn-cancelar");
   let overlay = document.getElementById("overlay");
 
+  let permisosAdmin = sessionStorage.getItem("permisosAdmin");
+
+  devolverLogin(permisosAdmin);
+
+  //Función para devolver al login si se accede a esta página sin permisos de administrador
+  function devolverLogin(permisosAdmin){
+
+if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
+  window.location.href = "../../index.php"; 
+}
+  }
+
   // Realiza una solicitud  utilizando fetch
   fetch("./../../Controlador/panelcontrolador.php")
     .then((respuesta) => respuesta.json())
@@ -144,6 +156,8 @@ window.addEventListener("DOMContentLoaded", function () {
           datos[i].seguridad
           +"&version=" +
           datos[i].version;
+          +"&color="+
+          datos[i].color
       });
     }
   }
@@ -222,7 +236,7 @@ window.addEventListener("DOMContentLoaded", function () {
         overlay.style.display = "block";
 
         //Coger el nombre del usuario (guardado como id del icono de eliminar), mediante el target del objeto e
-        imprimirNombre.innerHTML = "" + e.target.id;
+        imprimirNombre.innerHTML = " a " + e.target.id;
 
         //Pasarlo como parametro a peticionEliminar()
         console.log(e.target.id);
@@ -245,7 +259,7 @@ window.addEventListener("DOMContentLoaded", function () {
       console.log(nombreUsuario);
       //Pasar el nombre del usuario mediante el método get a eliminarcontrolador
       fetch(
-        "/Controlador/eliminarusuariocontrolador.php?nombreusuario=" +
+        "./../../Controlador/eliminarusuariocontrolador.php?nombreusuario=" +
           nombreUsuario
       )
         .then((respuesta) => respuesta.json())

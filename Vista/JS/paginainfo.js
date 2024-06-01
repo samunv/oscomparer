@@ -5,11 +5,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const seccionPrincipal = document.getElementById("seccion-principal");
 
-
-
   let res; // Variable para almacenar la respuesta
 
-  // Realiza una solicitud 
+  // Realiza una solicitud
   fetch("./../../Controlador/paginainfocontrolador.php")
     .then((respuesta) => respuesta.json())
     .then((data) => {
@@ -52,16 +50,19 @@ window.addEventListener("DOMContentLoaded", function () {
         i +
         "' class='imagenes' width='90' height='90'/>";
       html += "<div class='contenedor-comentarios-comparar'>";
-     html +=
+      html +=
         "<div id='comparar" +
         i +
-        "' class='comparar'><a href='../VistaUsuario/comparar.php#"+datos[i].dispositivos+"'><img src='../img/flechas-repetir (3).png' alt='' width='25' height='25' title='comparar'></a></div>";
+        "' class='comparar'><a href='../VistaUsuario/comparar.php#" +
+        datos[i].dispositivos +
+        "'><img src='../img/flechas-repetir (3).png' alt='' width='25' height='25' title='comparar'></a></div>";
       html += "</div>";
 
       html += "</div>";
       contadorResultados++;
     }
     if (contadorResultados === 0) {
+      vaciarTextoResultados(); 
       //Cuando el contadorResultados sea igual que 0, imprimirá lo siguiente:
 
       html += "<div class='no-resultados'>";
@@ -70,6 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
         "<img src='../img/triste.png' width='100' height='100' id='img-no-resultados'/>";
       html += "</div>";
     }
+    
     seccionPrincipal.innerHTML = html;
   }
 
@@ -77,9 +79,11 @@ window.addEventListener("DOMContentLoaded", function () {
   const buscador = document.getElementById("buscador");
   buscador.addEventListener("input", function () {
     const btnBuscar = document.getElementById("btn-buscar");
-    btnBuscar.addEventListener("click", function () {
+    btnBuscar.addEventListener("click", function (e) {
       //Buscar al hacer click en el icono de buscar
+      e.preventDefault(); //evitar recarga de la página
       buscar(res);
+       
     });
   });
 
@@ -89,7 +93,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // Buscar los datos comprobando que coincida el textoEntrada con el nombre de los SO
 
-    const datosEncontrados = []; // Inicializamos como array vacío
+    if(textoEntrada!=""){
+      const datosEncontrados = []; // Inicializamos como array vacío
 
     for (const sistemaOperativo of datos) {
       //datos es un array al que le asignamos a cada objeto la variable sistemaOperativo
@@ -97,11 +102,24 @@ window.addEventListener("DOMContentLoaded", function () {
         //Si el nombre del SO en minúsculas, incluye el texto de entrada, añadir el SO al array de datosEncontrados
         //con el método push
         datosEncontrados.push(sistemaOperativo);
+        imprimirTextoResultados(textoEntrada); 
       }
     }
 
     //Imprimir los contenedores de los SO encontrados
     imprimirContenedores(datosEncontrados);
+    }
+    
+  }
+
+  function imprimirTextoResultados(texto) {
+    let cajaResultados = document.getElementById("resultados");
+    let html = "<p>Filtrados por: "+texto+"</p>";
+    cajaResultados.innerHTML = html; 
+  }
+  function vaciarTextoResultados(){
+    let cajaResultados = document.getElementById("resultados");
+    cajaResultados.innerHTML = ""; 
   }
 
   //Filtrar so de móviles
@@ -115,6 +133,7 @@ window.addEventListener("DOMContentLoaded", function () {
           //cuando los dispositivos de los datos sean Móviles:
           moviles.push(datos[i]); // Añadir los datos al array mientras pertenezcan a los móviles
           imprimirContenedores(moviles);
+          imprimirTextoResultados(datos[i].dispositivos); 
         }
       }
     });
@@ -129,6 +148,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].dispositivos.toLowerCase() === "ordenadores") {
           ordenadores.push(datos[i]);
           imprimirContenedores(ordenadores);
+          imprimirTextoResultados(datos[i].dispositivos); 
         }
       }
     });
@@ -142,6 +162,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].dispositivos.toLowerCase() === "consola") {
           consolas.push(datos[i]);
           imprimirContenedores(consolas);
+          imprimirTextoResultados(datos[i].dispositivos); 
         }
       }
     });
@@ -155,6 +176,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].dispositivos.toLowerCase() === "tv") {
           tvs.push(datos[i]);
           imprimirContenedores(tvs);
+          imprimirTextoResultados(datos[i].dispositivos); 
         }
       }
     });
@@ -168,6 +190,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].dispositivos.toLowerCase() === "coches") {
           coches.push(datos[i]);
           imprimirContenedores(coches);
+          imprimirTextoResultados(datos[i].dispositivos); 
         }
       }
     });
@@ -181,6 +204,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].gratis.toLowerCase() === "si") {
           soGratis.push(datos[i]);
           imprimirContenedores(soGratis);
+          imprimirTextoResultados("SO Gratis"); 
         }
       }
     });
@@ -194,6 +218,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (datos[i].gratis.toLowerCase() === "no") {
           soDePago.push(datos[i]);
           imprimirContenedores(soDePago);
+          imprimirTextoResultados("SO de Pago"); 
         }
       }
     });
@@ -204,6 +229,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     todos.addEventListener("click", function () {
       imprimirContenedores(datos);
+      imprimirTextoResultados("Todos los SO"); 
     });
   }
 });

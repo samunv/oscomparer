@@ -20,6 +20,10 @@ window.addEventListener("DOMContentLoaded", function () {
         if (data.registro) {
           //Si se recibe el texto "registrado", llevar al login para poder iniciar sesión
           window.location.href = "index.php";
+        } else if (data.error) {
+          //Si se recibe el error mostrar una alerta y recargar la página
+          alert(data.error);
+          window.location.reload();
         }
       });
   });

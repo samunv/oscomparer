@@ -66,7 +66,7 @@ class SistemaOperativoDAOimplementar implements SistemaOperativoDAO
 
     public function subirSO(SistemaOperativo $so)
     {
-        $sql = "INSERT INTO so (nombre, fabricante, arquitectura, comunidad, seguridad, version, dispositivos, imagen, gratis) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO so (nombre, fabricante, arquitectura, comunidad, seguridad, version, dispositivos, imagen, gratis, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Preparar la declaración SQL
         $consulta = $this->conexion->getConexion()->prepare($sql);
@@ -83,9 +83,10 @@ class SistemaOperativoDAOimplementar implements SistemaOperativoDAO
             $dispositivos = $so->getDispositivos();
             $imagen = $so->getImagen();
             $gratis = $so->getGratis();
+            $color = $so->getColor(); 
 
             // Vincular los parámetros con los valores proporcionados
-            $consulta->bind_param("sssidssss", $nombre, $fabricante, $arquitectura, $comunidad, $seguridad, $version, $dispositivos, $imagen, $gratis);
+            $consulta->bind_param("sssidsssss", $nombre, $fabricante, $arquitectura, $comunidad, $seguridad, $version, $dispositivos, $imagen, $gratis, $color);
 
             // Ejecutar la declaración
             $resultado = $consulta->execute();
@@ -104,7 +105,7 @@ class SistemaOperativoDAOimplementar implements SistemaOperativoDAO
 
     public function actualizarSO(SistemaOperativo $so, $idSO)
     {
-        $sql = "UPDATE so SET comunidad=?, seguridad=?, version=? WHERE idSO=?";
+        $sql = "UPDATE so SET comunidad=?, seguridad=?, version=?, color=? WHERE idSO=?";
         $consulta = $this->conexion->getConexion()->prepare($sql);
 
 
@@ -113,9 +114,10 @@ class SistemaOperativoDAOimplementar implements SistemaOperativoDAO
             $comunidad = $so->getComunidad();
             $seguridad = $so->getSeguridad();
             $version = $so->getVersion();
+            $color = $so->getColor(); 
             $id = $idSO; 
 
-            $consulta->bind_param("idsi", $comunidad, $seguridad, $version, $id);
+            $consulta->bind_param("idssi", $comunidad, $seguridad, $version, $color, $id);
 
             $resultado = $consulta->execute();
             if ($resultado) {

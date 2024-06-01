@@ -21,6 +21,7 @@ require_once '../Modelo/SistemaOperativoDAOImplementar.php';
     $dispositivos = $_POST['dispositivos'];
     $imagen = $_POST["imagen"]; // Ruta de la imagen
     $gratis = $_POST["gratis"];
+    $color = $_POST["color"];
 
 
     // Verificar que los campos no estén vacíos
@@ -35,7 +36,8 @@ require_once '../Modelo/SistemaOperativoDAOImplementar.php';
         $version,
         $dispositivos,
         $imagen,
-        $gratis
+        $gratis,
+        $color
     );
 
     // Crear una instancia del DAO

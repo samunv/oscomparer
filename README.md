@@ -1,2 +1,1 @@
-# oscomparer
-Comparador de Sistemas Operativos
+# ComparadorGit

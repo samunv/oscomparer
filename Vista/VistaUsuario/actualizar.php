@@ -14,12 +14,14 @@
 <body>
     <h1>Actualizar <span id="nombre-del-so"></span></h1>
     <form id="formulario-actualizar">
-        <label for="comunidad">Comunidad Nueva:</label><br>
-        <input type="number" name="comunidad" id="comunidad" max="7000" placeholder="Comunidad" id="input-comunidad" required><br>
-        <label for="seguridad">Seguridad Nueva:</label><br>
-        <input type="number" name="seguridad" id="seguridad" min="1" max="10" placeholder="Seguridad" id="input-seguridad" required><br>
-        <label for="version">Versión Nueva:</label><br>
-        <input type="text" name="version" id="version" maxlength="15" placeholder="Versión" id="input-version" required>
+        <label for="input-comunidad">Comunidad Nueva:</label><br>
+        <input type="number" name="comunidad" max="7000" placeholder="Comunidad" id="input-comunidad"><br>
+        <label for="input-seguridad">Seguridad Nueva:</label><br>
+        <input type="number" name="seguridad"  min="1" max="10" placeholder="Seguridad" id="input-seguridad"><br>
+        <label for="input-version">Versión Nueva:</label><br>
+        <input type="text" name="version"  maxlength="15" placeholder="Versión" id="input-version"><br>
+        <label for="input-color">Color:</label>
+        <input type="color" name="color" id="input-color">
 
 
         <input type="text" value="nombre" name="nombre" id="input-nombre" class="input-oculto">

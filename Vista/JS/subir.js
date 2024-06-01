@@ -1,4 +1,15 @@
 window.addEventListener("DOMContentLoaded", function () {
+  let permisosAdmin = sessionStorage.getItem("permisosAdmin");
+
+  devolverLogin(permisosAdmin);
+
+  //Función para devolver al login si se accede a esta página sin permisos de administrador
+  function devolverLogin(permisosAdmin){
+
+if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
+  window.location.href = "../../index.php"; 
+}
+  }
   //Obtener el formulario
   let formulario = document.getElementById("formulario-subida");
 

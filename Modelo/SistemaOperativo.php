@@ -13,6 +13,7 @@ class SistemaOperativo
      * @var string $imagen almacena la url de la imagen para poder imprimirla en la web
      * @var string $gratis almacena un texto de Sí o No dependidendo de si es sistema es Gratis o no
      * @var int $idSO almacena el id de los SO. Es único, y se asigna de forma automática
+     * @var string $color almacena el codigo/id del color del SO
      */
 
     private $nombre;
@@ -25,9 +26,10 @@ class SistemaOperativo
     private $imagen;
     private $gratis;
     private $idSO;
+    private $color;
 
 
-    public function __construct($nombre, $fabricante, $arquitectura, $comunidad, $seguridad, $version, $dispositivos, $imagen, $gratis)
+    public function __construct($nombre, $fabricante, $arquitectura, $comunidad, $seguridad, $version, $dispositivos, $imagen, $gratis, $color)
     {
         $this->nombre = $nombre;
         $this->fabricante = $fabricante;
@@ -38,6 +40,7 @@ class SistemaOperativo
         $this->dispositivos = $dispositivos;
         $this->imagen = $imagen;
         $this->gratis = $gratis;
+        $this->color = $color;
     }
 
 
@@ -175,6 +178,19 @@ class SistemaOperativo
     public function setIdSO($idSO)
     {
         $this->idSO = $idSO;
+
+        return $this;
+    }
+
+    
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    public function setColor($color)
+    {
+        $this->color = $color;
 
         return $this;
     }

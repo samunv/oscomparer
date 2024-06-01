@@ -39,6 +39,38 @@ class UsuarioDAOimplementar implements UsuarioDAO
         return $datosArray;
     }
 
+        /**
+     * Función para leer un usuario con el nombre existente.
+     *
+     * Esta función realiza una consulta a la base de datos para obtener los datos
+     * del usuario que coincidan con el nombre de usuario.
+     *
+     * @param string $nombre El nombre de usuario del usuario que se quiere buscar.
+     * @return array Devuelve un array con los datos del usuario encontrado,
+     *               o un array vacío si no se encuentra ningún usuario con el que coincidan los datos.
+     */
+
+    public function leerUsuarioPorNombre($nombre)
+    {
+        $consulta = mysqli_query($this->conexion->getConexion(), "SELECT * FROM usuarios WHERE nombreUsuario='$nombre'") or die("Error en consulta: " . mysqli_error($this->conexion->getConexion()));
+        $datosArray = array();
+        while ($reg = mysqli_fetch_array($consulta)) {
+            $datosArray[] = $reg;
+        }
+
+        return $datosArray;
+    }
+
+
+    /**
+ * Lee todos los usuarios de la base de datos.
+ *
+ * Esta función realiza una consulta a la base de datos para obtener todos los registros de la tabla 'usuarios'.
+ * Si la consulta falla, se termina el script y se muestra un mensaje de error.
+ * Los datos obtenidos se almacenan en un array asociativo y se devuelven al final.
+ *
+ * @return array array que contiene todos los registros de la tabla 'usuarios'.
+ */
     public function leerUsuarios()
     {
         $consulta = mysqli_query($this->conexion->getConexion(), "SELECT * FROM usuarios") or die("Error en consulta: " . mysqli_error($this->conexion->getConexion()));

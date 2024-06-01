@@ -1,4 +1,16 @@
 window.addEventListener("DOMContentLoaded", function () {
+
+  let permisosAdmin = sessionStorage.getItem("permisosAdmin");
+
+  devolverLogin(permisosAdmin);
+
+  //Función para devolver al login si se accede a esta página sin permisos de administrador
+  function devolverLogin(permisosAdmin){
+
+if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
+  window.location.href = "../../index.php"; 
+}
+  }
   //Obtener todos los parámetros del SO enviados a la URL utilizando el método get() de la clase URLSearchParams
 
   var nombreUsuario = new URLSearchParams(window.location.search).get(

@@ -408,14 +408,14 @@ window.addEventListener("DOMContentLoaded", function () {
       {
         label: so1.nombre,
         data: [total1],
-        borderColor: "#0071e3",
-        backgroundColor: "#0071e3",
+        borderColor: so1.color,
+        backgroundColor: so1.color,
       },
       {
         label: so2.nombre,
         data: [total2],
-        borderColor: "cyan",
-        backgroundColor: "cyan",
+        borderColor: so2.color,
+        backgroundColor: so2.color,
       },
     ];
 

@@ -79,6 +79,10 @@ h1 {
     cursor: pointer;
 }
 
+#resultados{
+    text-align: center;
+}
+
 .contenedores p {
     margin-bottom: 5px;
 }

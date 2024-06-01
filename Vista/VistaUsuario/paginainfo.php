@@ -65,6 +65,7 @@
     </section>
 
 
+    <section id="resultados"></section>
 
 
     <section id="seccion-principal"></section>

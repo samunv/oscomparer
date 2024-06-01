@@ -53,7 +53,12 @@
             <option value="No">No</option>
         </select><br>
 
+        <label for="color">Color:</label><br>
+        <input type="color" id="color" name="color" required><br>
+        
+
         <input type="submit" value="Subir" id="btn-subir">
+
 
         
 

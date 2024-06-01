@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dispositivos = $_POST['dispositivos'];
         $imagen = $directorio . $datosImagen['name'];
         $gratis = $_POST["gratis"];
+        $color = $_POST["color"];
 
         
             $so = new SistemaOperativo(
@@ -29,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $version,
                 $dispositivos,
                 $imagen,
-                $gratis
+                $gratis,
+                $color
             );
 
             $soDAO = new SistemaOperativoDAOimplementar();
