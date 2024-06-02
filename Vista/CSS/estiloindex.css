@@ -28,7 +28,7 @@ h3 {
 
 
 .seccion-presentacion {
-    padding: 50px;
+    padding: 30px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -99,10 +99,8 @@ h3 {
 
 
 .seccion-presentacion2 {
-    height: 450px;
     background-color: white;
     background: linear-gradient(to bottom, #7ec8e3, #ececf0);
-        margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -111,7 +109,6 @@ h3 {
     padding-top: 100px;
     padding-bottom: 100px;
     margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .seccion-presentacion2 h1 {
@@ -120,7 +117,7 @@ h3 {
     font-size: 60px;
 }
 
-#span-comunidad{
+#span-comunidad {
     color: #2998c0;
 }
 
@@ -142,7 +139,13 @@ h3 {
     text-align: center;
     margin-bottom: 50px;
     font-size: 20px;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 10px;
+
 }
+
+
 
 
 
@@ -247,8 +250,8 @@ h3 {
 
 .seccion-cuadrado {
     background-color: white;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 1400px;
     height: 400px;
     margin-left: auto;
@@ -268,8 +271,8 @@ h3 {
     margin-top: 100px;
     margin-bottom: 120px;
     flex-wrap: wrap;
-    
-    
+
+
 }
 
 .seccionAndroid {
@@ -282,7 +285,7 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 #seccionAndroid-oculta,
@@ -478,7 +481,7 @@ h3 {
     background-color: white;
     overflow: hidden;
     transition: all 0.4s ease;
-    
+
 
 }
 
@@ -493,14 +496,16 @@ h3 {
     transition: all 0.4s ease;
 
 }
-.seccionPS5 img, .seccionXbox img{
+
+.seccionPS5 img,
+.seccionXbox img {
     width: 100%;
 }
 
 .seccionPS5:hover,
 .seccionXbox:hover {
     cursor: pointer;
-    filter:brightness(70%);
+    filter: brightness(70%);
 }
 
 #seccionPS5-oculta,
@@ -577,7 +582,8 @@ h3 {
         background-color: #ececf0;
         overflow-x: hidden;
     }
-    #header{
+
+    #header {
         width: 100%;
     }
 
@@ -605,11 +611,11 @@ h3 {
     }
 
 
-    .contenedores{
+    .contenedores {
         font-size: smaller;
         padding: 15px;
     }
-    
+
     .contenedor-comentarios-comparar {
         width: 100px;
         display: flex;
@@ -622,7 +628,7 @@ h3 {
 
 
 
-   button {
+    button {
         color: white;
         width: 100px;
         background-color: #0071e3;
@@ -660,7 +666,7 @@ h3 {
         background-color: white;
         margin-top: 15px;
         margin-bottom: 15px;
-        width:100%;
+        width: 100%;
         height: 130px;
         margin-left: auto;
         margin-right: auto;
@@ -683,7 +689,7 @@ h3 {
         margin-right: 0;
     }
 
-    .contenedores .imagenes{
+    .contenedores .imagenes {
         width: 50px;
         height: 50px;
     }
@@ -696,34 +702,37 @@ h3 {
     .seccion-cuadrado3 {
         display: none;
     }
-    .seccion-presentacion2{
+
+    .seccion-presentacion2 {
         width: 100%;
         height: auto;
         padding-top: 100px;
         padding-bottom: 40px;
         margin-bottom: 0%;
     }
-    .seccion-presentacion2 h1{
+
+    .seccion-presentacion2 h1 {
         font-size: 25px;
         width: 200px;
     }
 
-    #datos-top-so #tabla-top img{
+    #datos-top-so #tabla-top img {
         width: 50px;
         height: 50px;
     }
-    #datos-top-so #tabla-top{
+
+    #datos-top-so #tabla-top {
         font-size: smaller;
         padding: 10px;
     }
-    
-    
-    
+
+
+
     .imagenes-top {
         padding: 20px;
     }
 
-    .texto-descubre{
+    .texto-descubre {
         font-size: 25px;
     }
 
