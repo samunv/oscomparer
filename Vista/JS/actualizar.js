@@ -1,18 +1,17 @@
 window.addEventListener("DOMContentLoaded", function () {
+
   let permisosAdmin = sessionStorage.getItem("permisosAdmin");
 
   devolverLogin(permisosAdmin);
 
   //Función para devolver al login si se accede a esta página sin permisos de administrador
-  function devolverLogin(permisosAdmin) {
-    if (
-      permisosAdmin !== "1" &&
-      (permisosAdmin === "0" || permisosAdmin === null)
-    ) {
-      window.location.href = "../../index.php";
-    }
-  }
+  function devolverLogin(permisosAdmin){
 
+if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
+  window.location.href = "../../index.php"; 
+}
+  }
+  
   //Obtener todos los parámetros del SO enviados a la URL utilizando el método get() de la clase URLSearchParams
   var idSO = new URLSearchParams(window.location.search).get("idSO");
   var nombre = new URLSearchParams(window.location.search).get("nombre");
@@ -27,14 +26,22 @@ window.addEventListener("DOMContentLoaded", function () {
   var dispositivos = new URLSearchParams(window.location.search).get(
     "dispositivos"
   );
-  var version = new URLSearchParams(window.location.search).get("version");
-  var comunidad = new URLSearchParams(window.location.search).get("comunidad");
-  var seguridad = new URLSearchParams(window.location.search).get("seguridad");
+  var version = new URLSearchParams(window.location.search).get(
+    "version"
+  );
+  var comunidad = new URLSearchParams(window.location.search).get(
+    "comunidad"
+  );
+  var seguridad = new URLSearchParams(window.location.search).get(
+    "seguridad"
+  );
 
-  var color = new URLSearchParams(window.location.search).get("color");
+  var color = new URLSearchParams(window.location.search).get(
+    "color"
+  );
+
 
   let imagenSO = document.getElementById("img-so");
-
   imagenSO.src = imagen;
 
   let imprimirNombre = document.getElementById("nombre-del-so");
@@ -59,9 +66,9 @@ window.addEventListener("DOMContentLoaded", function () {
   inputVersion.value = version;
   let inputComunidad = document.getElementById("input-comunidad");
   inputComunidad.value = comunidad;
-  let inputSeguridad = document.getElementById("input-seguridad");
+  let inputSeguridad= document.getElementById("input-seguridad");
   inputSeguridad.value = seguridad;
-  let inputColor = document.getElementById("input-color");
+  let inputColor= document.getElementById("input-color");
   inputColor.value = color;
 
   //Obtener el formulario

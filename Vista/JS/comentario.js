@@ -67,8 +67,8 @@ window.addEventListener("DOMContentLoaded", function () {
     //Imprimir los comentarios del último al primero, para imprimir los últimos comentarios al principio
     //Para ello se recorren de forma inversa.
     //i es igual que la longitud de los datos - 1 para comenzar desde el índice del último elemento.
-    //Luego, en la condición, i debe ser mayor o igual que 0.
-    //Por último, i irá disminuyendo de uno en uno hasta el final.
+    // Luego, en la condición, i debe ser mayor o igual que 0.
+    //Por último, i irá disminuyendo de uno en uno.
     for (let i = datos.length - 1; i >= 0; i--) {
       html += "<div class='comentarios'>";
       html +=

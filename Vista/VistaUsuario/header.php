@@ -16,7 +16,7 @@
 
     <div class="logo">
       <a href="inicio.php#header">
-        <img src="../img/OScomparercanva__1_-removebg-preview.png" alt="" width="140" height="60" id="img-logo" />
+        <img src="../img/OScomparerlogogrande.png" alt="" width="160" height="60" id="img-logo" />
       </a>
     </div>
     <nav class="nav-principal">

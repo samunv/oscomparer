@@ -28,7 +28,7 @@ h3 {
 
 
 .seccion-presentacion {
-    padding: 30px;
+    padding: 40px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -106,7 +106,7 @@ h3 {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: 100px;
     margin-top: 10px;
 }

@@ -10,7 +10,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 1px rgb(196, 199, 209) solid;
+    
+    border-top: 1px #cbcbda solid;
 }
 
 .enlace{

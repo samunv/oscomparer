@@ -53,6 +53,7 @@ if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
       html += "<div class='contenedores' id='contenedor" + i + "'>";
       html += "<h3>" + datos[i].nombre + "</h3>";
       html += "<div id='info-detallada" + i + "'>";
+      html += "<p>ID: " + datos[i].idSO + "</p>";
       html += "<p>Desarrollador: " + datos[i].fabricante + "</p>";
       html += "<p>Arquitectura: " + datos[i].arquitectura + "</p>";
       html += "<p>Comunidad: " + datos[i].comunidad + " Mill.</p>";
@@ -60,7 +61,8 @@ if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
       html += "<p>Versión: " + datos[i].version + "</p>";
       html += "<p>Dispositivos: " + datos[i].dispositivos + "</p>";
       html += "<p>Gratis: " + datos[i].gratis + "</p>";
-      html += "</div>";
+      html += "<div id='contenedor-color-texto'>Color asociado<div id='contenedor-color' style='background-color:"+datos[i].color +";'></div>"; 
+      html += "</div></div>";
       html +=
         "<img src='" +
         datos[i].imagen +
@@ -168,6 +170,7 @@ if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
 
     // Fila de encabezado
     html += "<tr id='encabezado-tabla'>";
+    html += "<td class='columnas-ocultas'>ID</td>";
     html += "<td>Nombre</td>";
     html += "<td class='columnas-ocultas'>Email</td>";
     html += "<td class='columnas-ocultas'>Contraseña</td>";
@@ -185,6 +188,7 @@ if(permisosAdmin !== "1" && (permisosAdmin === "0" || permisosAdmin === null)){
       }
       
       html += "<tr>";
+      html += "<td class='filas-ocultas'>" + usuarios[i].idUsuario + "</td>";
       html += "<td>" + usuarios[i].nombreUsuario + "</td>";
       html += "<td class='filas-ocultas'>" + usuarios[i].email + "</td>";
       html += "<td class='filas-ocultas'>********</td>";

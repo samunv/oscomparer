@@ -63,14 +63,14 @@ class UsuarioDAOimplementar implements UsuarioDAO
 
 
     /**
- * Lee todos los usuarios de la base de datos.
- *
- * Esta función realiza una consulta a la base de datos para obtener todos los registros de la tabla 'usuarios'.
- * Si la consulta falla, se termina el script y se muestra un mensaje de error.
- * Los datos obtenidos se almacenan en un array asociativo y se devuelven al final.
- *
- * @return array array que contiene todos los registros de la tabla 'usuarios'.
- */
+     * Lee todos los usuarios de la base de datos.
+     *
+     * Esta función realiza una consulta a la base de datos para obtener todos los registros de la tabla 'usuarios'.
+     * Si la consulta falla, se termina el script y se muestra un mensaje de error.
+     * Los datos obtenidos se almacenan en un array asociativo y se devuelven al final.
+     *
+     * @return array array que contiene todos los registros de la tabla 'usuarios'.
+     */
     public function leerUsuarios()
     {
         $consulta = mysqli_query($this->conexion->getConexion(), "SELECT * FROM usuarios") or die("Error en consulta: " . mysqli_error($this->conexion->getConexion()));
@@ -128,11 +128,11 @@ class UsuarioDAOimplementar implements UsuarioDAO
 
 
     /**
- * Elimina un usuario de la base de datos.
- *
- * @param string $nombre El nombre del usuario a eliminar.
- * @return string Mensaje indicando si la eliminación fue exitosa o si ocurrió un error.
- */
+     * Elimina un usuario de la base de datos.
+     *
+     * @param string $nombre El nombre del usuario a eliminar.
+     * @return string Mensaje indicando si la eliminación fue exitosa o si ocurrió un error.
+     */
 
 
     public function eliminarUsuario($nombre)

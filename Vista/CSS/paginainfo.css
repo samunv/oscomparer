@@ -96,6 +96,7 @@ h1 {
     padding: 20px;
     text-align: center;
     overflow: hidden;
+    border: 1px #cbcbda solid;
 
 
 }
@@ -187,6 +188,8 @@ h1 {
     margin-right: auto;
     margin-top: 20px;
     border-radius: 20px;
+    
+    border: 1px #cbcbda solid;
 }
 
 .seccion-buscador {

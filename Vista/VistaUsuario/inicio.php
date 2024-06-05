@@ -31,9 +31,8 @@
 
 
   <section class="seccion-presentacion2" id="seccion-presentacion2">
-    <h1>Top de SO por <span id="span-comunidad">Comunidad</span></h1>
+    <h1>Top de sistemas operativos por <span id="span-comunidad">comunidad</span></h1>
     <div id="datos-top-so"></div>
-    
   </section>
 
 <section id="seccion-separacion"></section>
