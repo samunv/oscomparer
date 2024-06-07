@@ -46,7 +46,7 @@
                     <br>
                     Comunidad: 0.5 puntos por Millón.
                     <br>
-                    Gratis: 10 puntos si es gratis.
+                    Gratis: 100 puntos si es gratis.
                 </p>
                 <img src="../img/cuenta.png" alt="" width="70" height="70">
             </div>

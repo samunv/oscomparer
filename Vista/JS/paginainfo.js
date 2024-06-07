@@ -70,7 +70,7 @@ window.addEventListener("DOMContentLoaded", function () {
       html +=
         "<img src='../img/triste.png' width='100' height='100' id='img-no-resultados'/>";
       html += "</div>";
-    }
+    } 
     
     seccionPrincipal.innerHTML = html;
   }
@@ -112,11 +112,15 @@ window.addEventListener("DOMContentLoaded", function () {
     
   }
 
+
+  //Función para imprimir el texto de los resultados filtrados
   function imprimirTextoResultados(texto) {
     let cajaResultados = document.getElementById("resultados");
     let html = "<p>Filtrados por: "+texto+"</p>";
     cajaResultados.innerHTML = html; 
   }
+
+  //Función para vaciar el texto
   function vaciarTextoResultados(){
     let cajaResultados = document.getElementById("resultados");
     cajaResultados.innerHTML = ""; 

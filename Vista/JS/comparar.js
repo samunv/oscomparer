@@ -22,12 +22,12 @@ window.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       res = data; // Almacena la respuesta en la variable res
       console.log(res);
-      //Lamar a los métodos que van a utilizar los datos del json para poder pasar res como parámetro
-      imprimirMoviles(res);
-      imprimirOrdenadores(res);
-      imprimirConsolas(res);
-      imprimirTv(res);
-      imprimirCoches(res);
+      //Lamar a los métodos que van a utilizar los datos del json para poder pasar res y el nombre dle tipo de dispositivo como parámetros
+      imprimirCajas(res, "Móviles");
+      imprimirCajas(res, "Ordenadores");
+      imprimirCajas(res, "Consola");
+      imprimirCajas(res, "Coches");
+      imprimirCajas(res, "TV");
       //Pasar como parámetro el nombre del dispositivo para la lógica de selección
       elegirSO(res, "Móviles");
       elegirSO(res, "Ordenadores");
@@ -72,7 +72,6 @@ window.addEventListener("DOMContentLoaded", function () {
               return so !== datos[i];
               // La función devuelve 'true' si 'so' es diferente al sistema operativo 'datos[i]'.
               // De lo contrario, devuelve 'false'.
-
             });
           } else if (seleccionados.length < 2) {
             // Si aún no se han seleccionado dos so, seleccionamos este
@@ -117,12 +116,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
-  
-  
   //Función para aplicar los estilos al botón desactivado
   function desactivarBoton(btnComparar) {
-
     btnComparar.style.color = "";
     btnComparar.style.backgroundColor = "";
     btnComparar.style.border = "";
@@ -132,26 +127,21 @@ window.addEventListener("DOMContentLoaded", function () {
     btnComparar.style.transition = "";
     btnComparar.style.cursor = "";
     btnComparar.style.fontSize = "";
-    
 
     //Al pasar el ratón por encima, no se aplicará otro estilo al anterior
     btnComparar.addEventListener("mouseover", function () {
       btnComparar.style.backgroundColor = "";
       btnComparar.style.color = "";
-      
     });
     //Al quitar el ratón de encima, seguirán los estilos anteriores
     btnComparar.addEventListener("mouseout", function () {
       btnComparar.style.backgroundColor = "";
       btnComparar.style.color = "";
-      
     });
   }
 
   //Función para aplicar los estilos al botón activado
   function activarBoton(btnComparar) {
-
-
     btnComparar.style.color = "white";
     btnComparar.style.backgroundColor = "#0071e3";
     btnComparar.style.border = "1px solid #0071e3";
@@ -175,12 +165,12 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Función para imprimir los so de móviles
-  function imprimirMoviles(datos) {
+  // Función para imprimir las cajas con los datos y el dispositivo seleccionado
+  function imprimirCajas(datos, dispositivo) {
     let html = "";
 
     for (let i = 0; i < datos.length; i++) {
-      if (datos[i].dispositivos === "Móviles") {
+      if (datos[i].dispositivos === dispositivo) {
         html += "<div class='contenedores' id='contenedor" + i + "'>";
         html += "<h3>" + datos[i].nombre + "</h3>";
         html += "<div class='info-detallada'>";
@@ -198,187 +188,55 @@ window.addEventListener("DOMContentLoaded", function () {
           "' id='imagen" +
           i +
           "' class='imagenes' width='90' height='90'/>";
-          html +="<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
-       html += "</div>";
+        html +=
+          "<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
+        html += "</div>";
       }
     }
 
-    seccionMoviles.innerHTML = html;
+    //Llamamos a imprimirHTML() con el html creado y el dispositivo seleccionado
+    imprimirHTML(html, dispositivo);
   }
 
-  // Función para imprimir los so de ordenadores
-  function imprimirOrdenadores(datos) {
-    let html = "";
-
-    for (let i = 0; i < datos.length; i++) {
-      if (datos[i].dispositivos === "Ordenadores") {
-        html += "<div class='contenedores' id='contenedor" + i + "'>";
-        html += "<h3>" + datos[i].nombre + "</h3>";
-        html += "<div class='info-detallada' >";
-        html += "<p>Desarrollador: " + datos[i].fabricante + "</p>";
-        html += "<p>Arquitectura: " + datos[i].arquitectura + "</p>";
-        html += "<p>Comunidad: " + datos[i].comunidad + " Mill.</p>";
-        html += "<p>Seguridad: " + datos[i].seguridad + "</p>";
-        html += "<p>Versión: " + datos[i].version + "</p>";
-        html += "<p>Dispositivos: " + datos[i].dispositivos + "</p>";
-        html += "<p>Gratis: " + datos[i].gratis + "</p>";
-        html += "</div>";
-        html +=
-        "<div class='seccion-imagenes'><img src='" +
-        datos[i].imagen +
-        "' id='imagen" +
-        i +
-        "' class='imagenes' width='90' height='90'/>";
-        html +="<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
-       html += "</div>";
-      }
+  // Función para imprimir el html de cada SO según su tipo de dispositivo
+  function imprimirHTML(html, dispositivo) {
+    if (dispositivo === "Móviles") {
+      seccionMoviles.innerHTML = html;
+    } else if (dispositivo === "Ordenadores") {
+      seccionOrdenadores.innerHTML = html;
+    } else if (dispositivo === "Consola") {
+      seccionConsolas.innerHTML = html;
+    } else if (dispositivo === "Coches") {
+      seccionCoches.innerHTML = html;
+    } else if (dispositivo === "TV") {
+      seccionTv.innerHTML = html;
     }
-
-    seccionOrdenadores.innerHTML = html;
-  }
-
-  // Función para imprimir los so de consolas
-  function imprimirConsolas(datos) {
-    let html = "";
-
-    for (let i = 0; i < datos.length; i++) {
-      if (datos[i].dispositivos === "Consola") {
-        html += "<div class='contenedores' id='contenedor" + i + "'>";
-        html += "<h3>" + datos[i].nombre + "</h3>";
-        html += "<div class='info-detallada' ";
-        html += "<p>Desarrollador: " + datos[i].fabricante + "</p>";
-        html += "<p>Arquitectura: " + datos[i].arquitectura + "</p>";
-        html += "<p>Comunidad: " + datos[i].comunidad + " Mill.</p>";
-        html += "<p>Seguridad: " + datos[i].seguridad + "</p>";
-        html += "<p>Versión: " + datos[i].version + "</p>";
-        html += "<p>Dispositivos: " + datos[i].dispositivos + "</p>";
-        html += "<p>Gratis: " + datos[i].gratis + "</p>";
-        html += "</div>";
-        html +=
-          "<div class='seccion-imagenes'><img src='" +
-          datos[i].imagen +
-          "' id='imagen" +
-          i +
-          "' class='imagenes' width='90' height='90'/>";
-          html +="<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
-         html += "</div>";
-      }
-    }
-
-    seccionConsolas.innerHTML = html;
-  }
-
-  // Función para imprimir los so de TV
-  function imprimirTv(datos) {
-    let html = "";
-
-    for (let i = 0; i < datos.length; i++) {
-      if (datos[i].dispositivos === "TV") {
-        html += "<div class='contenedores' id='contenedor" + i + "'>";
-        html += "<h3>" + datos[i].nombre + "</h3>";
-        html += "<div class='info-detallada'>";
-        html += "<p>Desarrollador: " + datos[i].fabricante + "</p>";
-        html += "<p>Arquitectura: " + datos[i].arquitectura + "</p>";
-        html += "<p>Comunidad: " + datos[i].comunidad + " Mill.</p>";
-        html += "<p>Seguridad: " + datos[i].seguridad + "</p>";
-        html += "<p>Versión: " + datos[i].version + "</p>";
-        html += "<p>Dispositivos: " + datos[i].dispositivos + "</p>";
-        html += "<p>Gratis: " + datos[i].gratis + "</p>";
-        html += "</div>";
-        html +=
-          "<div class='seccion-imagenes'><img src='" +
-          datos[i].imagen +
-          "' id='imagen" +
-          i +
-          "' class='imagenes' width='90' height='90'/>";
-          html +="<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
-        html += "</div>";
-      }
-    }
-
-    seccionTv.innerHTML = html;
-  }
-
-  // Función para imprimir los so de coches
-  function imprimirCoches(datos) {
-    let html = "";
-
-    for (let i = 0; i < datos.length; i++) {
-      if (datos[i].dispositivos === "Coches") {
-        html += "<div class='contenedores' id='contenedor" + i + "'>";
-        html += "<h3>" + datos[i].nombre + "</h3>";
-        html += "<div class='info-detallada'>";
-        html += "<p>Desarrollador: " + datos[i].fabricante + "</p>";
-        html += "<p>Arquitectura: " + datos[i].arquitectura + "</p>";
-        html += "<p>Comunidad: " + datos[i].comunidad + " Mill.</p>";
-        html += "<p>Seguridad: " + datos[i].seguridad + "</p>";
-        html += "<p>Versión: " + datos[i].version + "</p>";
-        html += "<p>Dispositivos: " + datos[i].dispositivos + "</p>";
-        html += "<p>Gratis: " + datos[i].gratis + "</p>";
-        html += "</div>";
-        html +=
-          "<div class='seccion-imagenes'><img src='" +
-          datos[i].imagen +
-          "' id='imagen" +
-          i +
-          "' class='imagenes' width='90' height='90'/>";
-          html +="<img src='../img/masazul.png' alt='' height='35' width='35' class='icono-anadir'></div>";
-        html += "</div>";
-      }
-    }
-
-    seccionCoches.innerHTML = html;
   }
 
   let ventanaComparacion = document.getElementById("ventana-comparacion");
 
   // Función para realizar la lógica de comparación
   function comparar(so1, so2) {
-    //10 Puntos por punto de seguridad:
-    let seguridad1 = so1.seguridad * 15;
-    let seguridad2 = so2.seguridad * 15;
+    //Variable para almacenar los dos totales
+    let total1;
+    let total2;
 
-    //0.5 puntos por cada millón de usuarios en la comunidad
-    let comunidad1 = so1.comunidad * 0.5;
-    let comunidad2 = so2.comunidad * 0.5;
+    //Variables para almacenar los puntos de cada dato de cada SO
+    let seguridad1 = obtenerPuntosSeguridad(so1.seguridad);
+    let seguridad2 = obtenerPuntosSeguridad(so2.seguridad);
 
-    //Crear un total para cada so y sumar sus puntos
-    let total1 = seguridad1 + comunidad1;
-    let total2 = seguridad2 + comunidad2;
+    let comunidad1 = obtenerPuntosComunidad(so1.comunidad);
+    let comunidad2 = obtenerPuntosComunidad(so2.comunidad);
 
-    //10 puntos si el so es gratis
-    let gratis1 = 0;
-    let gratis2 = 0;
+    let gratis1 = obtenerPuntosGratis(so1.gratis);
+    let gratis2 = obtenerPuntosGratis(so2.gratis);
 
-    if (so1.gratis === "Si") {
-      //Si el so es gratis, añadir puntos al total
-      gratis1 = 10;
-      total1 += gratis1;
-    } else {
-      //Si no lo es, añadir 0 puntos al total
-      total1 += 0;
-    }
+    //Obtener ambos totales
+    total1 = calcularTotal(seguridad1, comunidad1, gratis1);
+    total2 = calcularTotal(seguridad2, comunidad2, gratis2);
 
-    if (so2.gratis === "Si") {
-      //Si el so es gratis, añadir puntos al total
-      gratis2 = 10;
-      total2 += gratis2;
-    } else {
-      //Si no lo es, añadir 0 puntos al total
-      total2 += 0;
-    }
-
-    let ganador = ""; //Crear una variable para guardar los datos del so ganador
-
-    if (total1 > total2) {
-      //Si el total1 es mayor al total2, se asignará la variable ganador al so1
-      ganador = so1.nombre;
-    } else if (total1 < total2) {
-      //Si el total2 es mayor al total1, se asignará la variable ganador al so2
-      ganador = so2.nombre;
-    } else if (total1 == total2) {
-      //console.log("empate");
-    }
+    //Variable para almacenar el ganador obtenido
+    let ganador = obtenerGanador(total1, total2, so1, so2);
 
     //Llamar a la función imprimirComparacion() con todos los parámetros necesarios
 
@@ -398,6 +256,48 @@ window.addEventListener("DOMContentLoaded", function () {
 
     //Llamar a la función crearGráficas() con los parámetros necesarios
     crearGraficas(so1, so2, total1, total2);
+  }
+
+  //Función para obtener el calculo de puntos de seguridad
+  function obtenerPuntosSeguridad(seguridad) {
+    // Seguridad por 15
+    return seguridad * 15;
+  }
+
+  //Función para obtener el cálculo de los puntos de comunidad
+  function obtenerPuntosComunidad(comunidad) {
+    // Comunidad por 0.5
+    return comunidad * 0.5;
+  }
+
+  function obtenerPuntosGratis(gratis) {
+    let puntos = 0;
+    if (gratis === "Si") {
+      //Si el so es gratis, añadir 100 puntos
+      puntos += 100;
+    } else {
+      //Si no lo es, añadir 0 puntos
+      puntos += 0;
+    }
+    return puntos;
+  }
+
+  //Función para calcular el total de puntos
+  function calcularTotal(seguridad, comunidad, gratis) {
+    return seguridad + comunidad + gratis;
+  }
+
+  //Función para obtener el ganador tomando dos totales y dos so como parámetros
+  function obtenerGanador(total1, total2, so1, so2) {
+    if (total1 > total2) {
+      //Si el total1 es mayor al total2, se asignará la variable ganador al so1
+      return so1.nombre;
+    } else if (total1 < total2) {
+      //Si el total2 es mayor al total1, se asignará la variable ganador al so2
+      return so2.nombre;
+    } else if (total1 == total2) {
+      return "empate";
+    }
   }
 
   function crearGraficas(so1, so2, total1, total2) {
@@ -519,136 +419,71 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
- 
-
   // Hacer scroll en el carrusel con los botones
-  var contenedor = document.getElementById("carrusel-dispositivos");
+  // Obtenemos los botones de izquierda y derecha de cada secccion que contenga un carrusel
+  var contenedorCarrusel = document.getElementById("carrusel-dispositivos");
   var btnScrollDerecha = document.getElementById("btn-derecha");
   var btnScrollIzquierda = document.getElementById("btn-izquierda");
 
-  btnScrollDerecha.addEventListener("click", function () {
-    var scroll = contenedor.scrollLeft;
-    var nuevaPosicion = scroll + 300;
-    // Hacer un scroll suave
-    contenedor.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
-
-  btnScrollIzquierda.addEventListener("click", function () {
-    var scroll = contenedor.scrollLeft;
-    var nuevaPosicion = scroll - 300;
-    contenedor.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  //Llamamos a la función hacerClickBoton y le pasamos cada boton y la sección en la que sucederán los movimientos de scroll como parámetros
+  hacerClickBoton(btnScrollIzquierda, btnScrollDerecha, contenedorCarrusel);
 
   var btnMovilesDer = document.getElementById("btn-derecha-moviles");
   var btnMovilesIzq = document.getElementById("btn-izquierda-moviles");
 
-  btnMovilesDer.addEventListener("click", function () {
-    var scroll = seccionMoviles.scrollLeft;
-    var nuevaPosicion = scroll + 600;
-    seccionMoviles.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  hacerClickBoton(btnMovilesIzq, btnMovilesDer, seccionMoviles);
 
-  btnMovilesIzq.addEventListener("click", function () {
-    var scroll = seccionMoviles.scrollLeft;
-    var nuevaPosicion = scroll - 600;
-    seccionMoviles.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
-
-  var btnOrdenadresDer = document.getElementById("btn-derecha-ordenadores");
+  var btnOrdenadoresDer = document.getElementById("btn-derecha-ordenadores");
   var btnOrdenadoresIzq = document.getElementById("btn-izquierda-ordenadores");
 
-  btnOrdenadresDer.addEventListener("click", function () {
-    var scroll = seccionOrdenadores.scrollLeft;
-    var nuevaPosicion = scroll + 600;
-    seccionOrdenadores.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
-
-  btnOrdenadoresIzq.addEventListener("click", function () {
-    var scroll = seccionOrdenadores.scrollLeft;
-    var nuevaPosicion = scroll - 600;
-    seccionOrdenadores.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  hacerClickBoton(btnOrdenadoresIzq, btnOrdenadoresDer, seccionOrdenadores);
 
   var btnConsolasDer = document.getElementById("btn-derecha-consolas");
   var btnConsolasIzq = document.getElementById("btn-izquierda-consolas");
 
-  btnConsolasDer.addEventListener("click", function () {
-    var scroll = seccionConsolas.scrollLeft;
-    var nuevaPosicion = scroll + 600;
-    seccionConsolas.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
-
-  btnConsolasIzq.addEventListener("click", function () {
-    var scroll = seccionConsolas.scrollLeft;
-    var nuevaPosicion = scroll - 600;
-    seccionConsolas.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  hacerClickBoton(btnConsolasIzq, btnConsolasDer, seccionConsolas);
 
   var btnTvDer = document.getElementById("btn-derecha-tv");
   var btnTvIzq = document.getElementById("btn-izquierda-tv");
 
-  btnTvDer.addEventListener("click", function () {
-    var scroll = seccionTv.scrollLeft;
-    var nuevaPosicion = scroll + 600;
-    seccionTv.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
-
-  btnTvIzq.addEventListener("click", function () {
-    var scroll = seccionTv.scrollLeft;
-    var nuevaPosicion = scroll - 600;
-    seccionTv.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  hacerClickBoton(btnTvIzq, btnTvDer, seccionTv);
 
   var btnCochesDer = document.getElementById("btn-derecha-coches");
   var btnCochesIzq = document.getElementById("btn-izquierda-coches");
 
-  btnCochesDer.addEventListener("click", function () {
-    var scroll = seccionCoches.scrollLeft;
-    var nuevaPosicion = scroll + 600;
-    seccionCoches.scrollTo({
-      left: nuevaPosicion,
-      behavior: "smooth",
-    });
-  });
+  hacerClickBoton(btnCochesIzq, btnCochesDer, seccionCoches);
 
-  btnCochesIzq.addEventListener("click", function () {
-    var scroll = seccionCoches.scrollLeft;
+  //Función que controla el click de los botones, tomando dos botones y un contenedor como parámetro
+  function hacerClickBoton(botonIzq, botonDer, contenedor) {
+    botonDer.addEventListener("click", function () {
+      //Si botonDer escucha un clcik, llamamos a la función moverScrollDer() con el contenedor como parámetro
+      moverScrollDer(contenedor);
+    });
+    botonIzq.addEventListener("click", function () {
+      //Si botonIzq escucha un clcik, llamamos a la función moverScrollIzq() con el contenedor como parámetro
+      moverScrollIzq(contenedor);
+    });
+  }
+
+  //Función que mueve el scroll a la iquierda, tomando un contenedor como parámetro
+  function moverScrollIzq(contenedor) {
+    var scroll = contenedor.scrollLeft;
     var nuevaPosicion = scroll - 600;
-    seccionCoches.scrollTo({
+    //Realizar un scroll suave hacia la izquierda
+    contenedor.scrollTo({
       left: nuevaPosicion,
       behavior: "smooth",
     });
-  });
+  }
 
-
+  //Función que mueve el scroll a la derecha, tomando un contenedor como parámetro
+  function moverScrollDer(contenedor) {
+    var scroll = contenedor.scrollLeft;
+    var nuevaPosicion = scroll + 600;
+    //Realizar un scroll suave hacia la derecha
+    contenedor.scrollTo({
+      left: nuevaPosicion,
+      behavior: "smooth",
+    });
+  }
 });
